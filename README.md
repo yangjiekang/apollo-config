@@ -6,7 +6,7 @@
 
 ## Install
 ```
-composer require "totoro/apollo-config:^0.0.1"
+composer require "totoro/apollo-config:^0.0.2"
 ```
 
 #### In Laravel
