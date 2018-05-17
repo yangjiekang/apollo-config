@@ -1,10 +1,12 @@
 ## Apollo config manage
 - 方便程序快速获取配置参数
 - 支持`redis`、`SHM` 存储方式
+- `SHM` 只支持linux下使用
+- Laravel 5.5+
 
 ## Install
 ```
-composer require totoro/apollo-config
+composer require "totoro/apollo-config:dev-master"
 ```
 
 #### In Laravel

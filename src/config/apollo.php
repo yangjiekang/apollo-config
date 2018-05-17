@@ -26,7 +26,10 @@ return [
     'stores'     => [
         'redis' => [
             'driver'   => 'redis',
-            'database' => 10,
+            'host' => env('REDIS_HOST', '127.0.0.1'),
+            'password' => env('REDIS_PASSWORD', null),
+            'port' => env('REDIS_PORT', 6379),
+            'database' => env('DATABASE', 10),
         ],
         'shm'   => [
             'driver' => 'shm',

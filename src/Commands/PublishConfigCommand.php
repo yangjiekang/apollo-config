@@ -31,7 +31,7 @@ class PublishConfigCommand extends Command
         $this->info('Publish config files');
 
         (new Publisher($this))->publishFile(
-            __DIR__ . '/../config/',
+            __DIR__ . '/../config/apollo.php',
             base_path('config'),
             'apollo.php'
         );
