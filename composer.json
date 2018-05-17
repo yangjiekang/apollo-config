@@ -1,0 +1,19 @@
+{
+    "name": "totoro/apollo-config",
+    "authors": [
+        {
+            "name": "yangjiekang",
+            "email": "yangjiekang@chinac.com"
+        }
+    ],
+    "require": {
+      "php": ">=7.0.0",
+      "predis/predis": "^1.1",
+      "guzzlehttp/guzzle": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Totoro\\Apollo\\":"src"
+        }
+    }
+}
