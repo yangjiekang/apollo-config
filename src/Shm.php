@@ -91,9 +91,9 @@ class Shm
     {
         $size = mb_strlen($data, 'UTF-8');
         if($this->exists($this->id)) {
-            shmop_delete($this->shmId);
+//            shmop_delete($this->shmId);
             shmop_close($this->shmId);
-            $this->shmId = shmop_open($this->id, "c", $this->perms, $size);
+            $this->shmId = shmop_open($this->id, "w", $this->perms, $size);
             shmop_write($this->shmId, $data, 0);
         } else {
             $this->shmId = shmop_open($this->id, "c", $this->perms, $size);
