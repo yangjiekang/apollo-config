@@ -102,7 +102,11 @@ class Publisher
             $service_url = [];
             foreach ($notifications as $key => $val) {
                 if (isset($change_notifications[$val['namespaceName']])) {
-                    app('apollo')->put($key . $componentName . '_notificationId', $change_notifications[$val['namespaceName']]);
+                    $tmpKey = $key . $componentName . '_notificationId';
+                    $tmpValue = $change_notifications[$val['namespaceName']];
+                    $oldData = app('apollo')->all();
+                    $newData = array_merge(is_array($oldData) ? $oldData : [], [$tmpKey => $tmpValue]);
+                    app('apollo')->putMany($newData);
                 }
                 $url = rtrim($componentUrl, '/') . '/configs/';
                 $url .= $apps[$key]['appId'] . '/';
