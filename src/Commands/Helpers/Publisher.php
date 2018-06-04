@@ -150,7 +150,9 @@ class Publisher
                     }
                 }
                 if ($data) {
-                    app('apollo')->put($serviceKey, $data);
+                    $oldData = app('apollo')->all();
+                    $newData = array_merge(is_array($oldData) ? $oldData : [], [$serviceKey => $data]);
+                    app('apollo')->putMany($newData);
                 }
             }
         }

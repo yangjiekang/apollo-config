@@ -110,7 +110,9 @@ class PublishConsulCommand extends Command
                 }
             }
             if ($data) {
-                app('apollo')->put($urlKey, $data);
+                $oldData = app('apollo')->all();
+                $newData = array_merge(is_array($oldData) ? $oldData : [], [$urlKey => $data]);
+                app('apollo')->putMany($newData);
             }
         }
 
