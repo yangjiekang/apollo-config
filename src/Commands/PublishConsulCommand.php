@@ -36,8 +36,12 @@ class PublishConsulCommand extends Command
         //通信服务地址
         $consulUrl = $consulConfig['url'];
         $consulToken = $consulConfig['token'];
+        $consulIsPool = $consulConfig['is_pool'];
 
-        $url = $consulUrl . '/v1/agent/members?token=' . $consulToken . '&wan=true';
+        $url = $consulUrl . '/v1/agent/members?token=' . $consulToken;
+        if ($consulIsPool){
+            $url .= '&wan=true';
+        }
         $res = file_get_contents($url);
         if (!$res){
             $this->info('Publish failed');

@@ -23,12 +23,12 @@ return [
     | shm 默认内存ID 1024，可以不用修改
     |
     */
-    'stores'     => [
+    'stores' => [
         'redis' => [
             'driver'   => 'redis',
-            'host' => env('REDIS_HOST', '127.0.0.1'),
+            'host'     => env('REDIS_HOST', '127.0.0.1'),
             'password' => env('REDIS_PASSWORD', null),
-            'port' => env('REDIS_PORT', 6379),
+            'port'     => env('REDIS_PORT', 6379),
             'database' => env('DATABASE', 10),
         ],
         'shm'   => [
@@ -73,9 +73,10 @@ return [
     | 需要设置好服务名、服务读取配置的key、获取服务地址的key
     |
     */
-    'consul'     => [
-        'url'   => 'http://10.10.10.10:8500',
-        'token' => 'xxxx-xxxx-xxxx-xxxx',
+    'consul' => [
+        'url'     => 'http://10.10.10.10:8500',
+        'token'   => 'xxxx-xxxx-xxxx-xxxx',
+        'is_pool' => false      //默认false
     ],
 
     /*
@@ -98,7 +99,7 @@ return [
         //参照配置中心，需要用到哪些就配置哪些
         'apps' => [
             //计费服务
-            'bill'  => [
+            'bill'   => [
                 //应用ID,参照配置中心
                 'appId'         => 'ms-billing',
                 //集群名
@@ -107,15 +108,15 @@ return [
             ],
             //实际上只用到了namespaceName
             'common' => [
-                'appId'             => 'common',
-                'clusterName'       => 'wuxi1',
-                'namespaceName'     => 'CHINAC.endpoint'
+                'appId'         => 'common',
+                'clusterName'   => 'wuxi1',
+                'namespaceName' => 'CHINAC.endpoint'
             ],
             //管用控、订单、计费服务通用配置
             'cpp'    => [
-                'appId'             => 'common',
-                'clusterName'       => 'wuxi1',
-                'namespaceName'     => 'CHINAC.cppcommon'
+                'appId'         => 'common',
+                'clusterName'   => 'wuxi1',
+                'namespaceName' => 'CHINAC.cppcommon'
             ]
         ]
     ]
