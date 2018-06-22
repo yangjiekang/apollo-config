@@ -25,7 +25,7 @@ class ShmStore implements Store
 
     public function __construct(Shm $shm, $serviceConfig)
     {
-        $this->shm = $shm;
+        $this->shm = $shm;dd($shm);
         $this->serviceKey = $serviceConfig['service_key'];
         $this->urlKey = $serviceConfig['url_key'];
         $this->serviceName =  $serviceConfig['service_names'];

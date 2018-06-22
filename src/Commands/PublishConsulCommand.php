@@ -29,7 +29,7 @@ class PublishConsulCommand extends Command
      */
     public function handle()
     {
-        $this->info('Publish consul server url');
+//        $this->info('Publish consul server url');
 
         $consulConfig = config('apollo.consul');
         $urlKey = config('apollo.services.url_key');
@@ -44,7 +44,8 @@ class PublishConsulCommand extends Command
         }
         $res = file_get_contents($url);
         if (!$res){
-            $this->info('Publish failed');
+//            $this->info('Publish failed');
+            return ;
         }
         $res = json_decode($res, true);
         $service_name = [];
@@ -120,7 +121,7 @@ class PublishConsulCommand extends Command
             }
         }
 
-        $this->info('Publish finish');
+//        $this->info('Publish finish');
 
     }
 }

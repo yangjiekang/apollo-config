@@ -130,6 +130,7 @@ class Shm
     {
         return $this->id;
     }
+
     /**
      * Gets the current shared memory block permissions
      *
@@ -156,6 +157,10 @@ class Shm
      */
     public function __destruct()
     {
-        shmop_close($this->shmId);
+        try{
+            shmop_close($this->shmId);
+        }catch (\Exception $exception){
+            //TODO
+        }
     }
 }
