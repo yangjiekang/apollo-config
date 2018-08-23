@@ -23,9 +23,9 @@ class FileStore implements Store
 
     protected $data;
 
-    public function __construct($path, $file = '.env')
+    public function __construct($file)
     {
-        $this->filePath = $this->getFilePath($path, $file);
+        $this->filePath = $this->getFilePath($file);
         $this->loader = new EnvFile($this->filePath, true);
         $this->loader->load();
         $this->data = $this->loader->getData();
@@ -78,13 +78,10 @@ class FileStore implements Store
      *
      * @return string
      */
-    protected function getFilePath($path, $file)
+    protected function getFilePath($path)
     {
-        if (!is_string($file)) {
-            $file = '.env';
-        }
 
-        $filePath = rtrim($path, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR.$file;
+        $filePath = rtrim($path, DIRECTORY_SEPARATOR);
 
         return $filePath;
     }

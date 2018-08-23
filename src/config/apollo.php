@@ -37,7 +37,7 @@ return [
         ],
         'file'  => [
             'driver' => 'file',
-            'path'   => env('APOLLO_CONF', "/etc/xultra/apollo_conf")
+            'conf'   => env('APOLLO_CONF', "/etc/xultra/php_conf")
         ]
     ],
 

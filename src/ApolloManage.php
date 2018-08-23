@@ -128,8 +128,8 @@ class ApolloManage implements FactoryContract
      */
     protected function createFileDriver(array $config)
     {
-        $path = $config['path'];
-        return $this->repository(new FileStore($path));
+        $conf = $config['conf'];
+        return $this->repository(new FileStore($conf));
     }
 
     /**

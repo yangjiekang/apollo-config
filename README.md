@@ -88,12 +88,12 @@ protected function schedule(Schedule $schedule)
 
 ### 当 `APOLLO_DRIVER`设置为 `file`  时
 
-- `.env` 中设置配置文件的路径，默认 `/etc/xultra/apollo_conf`，当然也可以只直接在`config/apollo.php`中设置
+- `.env` 中设置配置文件的路径，默认 `/etc/xultra/php_conf`，当然也可以只直接在`config/apollo.php`中设置
 ```
 APOLLO_DRIVER=file
-APOLLO_CONF=/etc/xultra/apollo_conf
+APOLLO_CONF=/etc/xultra/php_conf
 ```
-- 在配置目录中添加 `.env` 文件，在里面设置参数
+- 在配置文件 `/etc/xultra/php_conf` 中设置参数
 ```
 xu-billing=http://127.0.0.1:1000
 xu-audit=http://127.0.0.1000
