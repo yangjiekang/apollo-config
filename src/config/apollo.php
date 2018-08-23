@@ -9,7 +9,7 @@ return [
     |
     | shm只支持linux下使用
     |
-    | 支持: "redis", "shm"
+    | 支持: "redis", "shm", "file"
     |
     */
     'default' => env('APOLLO_DRIVER', 'redis'),
@@ -35,6 +35,10 @@ return [
             'driver' => 'shm',
             'id'     => 1024,
         ],
+        'file'  => [
+            'driver' => 'file',
+            'path'   => env('APOLLO_CONF', "/etc/xultra/apollo_conf")
+        ]
     ],
 
     /*

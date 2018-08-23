@@ -121,6 +121,18 @@ class ApolloManage implements FactoryContract
     }
 
     /**
+     * Create an instance of the database cache driver.
+     *
+     * @param  array  $config
+     * @return \Totoro\Apollo\Repository
+     */
+    protected function createFileDriver(array $config)
+    {
+        $path = $config['path'];
+        return $this->repository(new FileStore($path));
+    }
+
+    /**
      * Create a new apollo repository with the given implementation.
      *
      * @param  \Totoro\Apollo\Store $store
